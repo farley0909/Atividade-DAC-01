@@ -8,8 +8,9 @@ Já um container é uma instância de máquina virtual, gerada a partir de uma i
 
 ## 2. Qual a diferença entre os comandos COPY, EXPOSE e ADD?
 
-O comando COPY copia arquivos ou diretórios para a imagem. Um exemplo de caso desse comando é copiar arquivos de código de um projeto para a imagem, para que seja posteriormente executado.
-O comando EXPOSE faz com que imagem possa a escutar uma porta. Esse comando não necessariamente faz com que uma porta externa seja utilizada. Um exemplo de uso é disponibilizar um banco de dados para outros containers na mesma rede interna.
+O comando EXPOSE faz com que imagem possa a escutar uma porta. Esse comando não necessariamente faz com que uma porta externa seja utilizada. Um exemplo de uso é disponibilizar um banco de dados para outros containers na mesma rede interna.  
+O comando COPY copia arquivos ou diretórios para a imagem. Um exemplo de caso desse comando é copiar arquivos de código de um projeto para a imagem, para que seja posteriormente executado.  
+E o commando ADD é basicamente o comando COPY, mas com suporte a URL's em vez de apenas arquivos locais e que automaticamente descomprime arquivos tar.
 
 
 ## 5º Qual a diferença entre os comandos docker stop <container_id> e docker kill <container_id>? 

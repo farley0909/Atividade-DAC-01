@@ -12,7 +12,10 @@ O comando EXPOSE faz com que imagem possa a escutar uma porta. Esse comando não
 O comando COPY copia arquivos ou diretórios para a imagem. Um exemplo de caso desse comando é copiar arquivos de código de um projeto para a imagem, para que seja posteriormente executado.  
 E o commando ADD é basicamente o comando COPY, mas com suporte a URL's em vez de apenas arquivos locais e que automaticamente descomprime arquivos tar.
 
+## 4º Qual a diferença entre as estratégias de shell e exec?
+
+O docker exec executa um comando dentro de um container que esteja em execução. Caso o container seja reiniciado o comando não será retomado. Além disso, o docker exec executa dentro do diretório raiz do container ou em um diretório personalizado especificado dentro do WORKDIR no dockerfile. Já o docker shell consiste em utilizar o docker exec para acessar o shell do container em execução, permitindo assim a livre naveção entre os diretórios do container.
 
 ## 5º Qual a diferença entre os comandos docker stop <container_id> e docker kill <container_id>? 
 
-R.: A pricipal diferença é que o docker kill vai parar o processo imediatamente, mesmo que de forma forçada. Já o docker stop vai esperar o processo realizar a tarefa em execução antes de interrompelo. Além disso, o docker kill permite que você passe flags para o processo principal do container, enquanto o docker stop não permite.
+A pricipal diferença é que o docker kill vai parar o processo imediatamente, mesmo que de forma forçada. Já o docker stop vai esperar o processo realizar a tarefa em execução antes de interrompelo. Além disso, o docker kill permite que você passe flags para o processo principal do container, enquanto o docker stop não permite.

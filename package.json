@@ -1,0 +1,19 @@
+{
+  "author": "",
+  "keywords": [],
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "name": "atividade-dac-01",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farley0909/Atividade-DAC-01.git"
+  },
+  "bugs": {
+    "url": "https://github.com/farley0909/Atividade-DAC-01/issues"
+  },
+  "homepage": "https://github.com/farley0909/Atividade-DAC-01#readme"
+}

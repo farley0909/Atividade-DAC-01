@@ -1,22 +1,12 @@
 import { Router } from "express";
+import { saveBook } from "./controller/Book/addBook.js";
 
 const router = Router();
 
 //Book's routes
-router.post('/api/v1/book', async ()=>{
+router.post('/api/v1/book', async (request, response)=>{
+    let result = await saveBook(request.body);
+    response.json(result);
+})
 
-})
-router.delete('/api/v1/book', async ()=>{
-    
-})
-router.update('/api/v1/book', async ()=>{
-    
-})
-//Fetch one book
-router.get('/api/v1/book/by-id', async ()=>{
-    
-})
-//Fecth all books
-router.get('/api/v1/book', async ()=>{
-    
-})
+export {router}

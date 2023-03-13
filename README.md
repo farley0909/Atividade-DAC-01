@@ -15,7 +15,7 @@ E o commando ADD é basicamente o comando COPY, mas com suporte a URL's em vez d
 ## 3º Qual a diferença entre os comandos RUN, CMD e ENTRYPOINT?
 
 Docker RUN e comando que executa um determinado container o mesmo pode estar alocado localmente ou remoto pois o mesmo possui o mesmo o mesmo tem toda uma infraestrutura.
-CMD tem a função fornecer padrões ao contêiner no momento da execução já ENTRYPOINT tem a função especificar as instruções contida no CMD no momento da execução do container
+CMD tem a função fornecer padrões ao contêiner no momento da execução já ENTRYPOINT tem a função especificar as instruções contida no CMD no momento da execução do container.
 A Diferença entre os três comandos e que Docker RUN irá executar o container juntamente com os comandos contidos no CMD e logo o usuário poderá especificar com ENTRYPOINT o que deve ser executado.
 
 ## 4º Qual a diferença entre as estratégias de shell e exec?

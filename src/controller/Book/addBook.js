@@ -1,10 +1,11 @@
 import {db} from '../../db.js'
-export async function saveBook(data){
+import { formatDate } from '../../util/formatDate.js'
+export async function addBook(data){
     try {
         let response = await db.livro.create({
             data:{
                 titulo:data.titulo,
-                dataDeLancamento:new Date(data.dataDeLancamento)
+                dataDeLancamento:new Date(formatDate(data.dataDeLancamento))
             }
         })
         return ({data: response, has_error:false})

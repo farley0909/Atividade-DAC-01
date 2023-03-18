@@ -7,6 +7,9 @@ import { Router } from "express";
 
 const book_routes = Router();
 
+book_routes.get('/api/home/', async (req, res)=>{
+    res.render("index")
+})
 book_routes.post('/api/v1/book', async (request, response)=>{
     let result = await addBook(request.body);
     response.json(result);

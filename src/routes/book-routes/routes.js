@@ -4,11 +4,14 @@ import { fetchAllBooks } from "../../controller/Book/fetchAllBooks.js";
 import { deleteBook } from "../../controller/Book/deleteBook.js";
 import { updateBook } from "../../controller/Book/updateBook.js";
 import { Router } from "express";
+import { fetchAllPublisher } from "../../controller/Publisher/fetchAllPublishers.js";
 
 const book_routes = Router();
 
 book_routes.get('/api/home/', async (req, res)=>{
-    res.render("index")
+    let ediotras = await fetchAllPublisher()
+    let books = await fetchAllBooks()
+    res.render("index", {editoras:ediotras, books:books})
 })
 book_routes.post('/api/v1/book', async (request, response)=>{
     let result = await addBook(request.body);

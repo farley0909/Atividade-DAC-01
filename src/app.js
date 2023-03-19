@@ -13,4 +13,6 @@ app.use(book_routes)
 app.use(publisher_routes)
 app.set('view engine', 'ejs');
 app.set('views', 'public');
+app.use(express.static('public'));
+
 export { app };

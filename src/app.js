@@ -1,18 +1,14 @@
-import * as dotenv from 'dotenv' 
-dotenv.config()
-import express from 'express'
-import { book_routes } from './routes/book-routes/routes.js';
-import { publisher_routes } from './routes/publisher-routes/routes.js';
-import ejs from 'ejs'
-
-
+import "ejs";
+import express from "express";
+import { apiRoutes } from "./apiRoutes.js";
+import { pageRoutes } from "./pageRoutes.js";
 
 const app = express();
 app.use(express.json());
-app.use(book_routes)
-app.use(publisher_routes)
-app.set('view engine', 'ejs');
-app.set('views', 'public');
-app.use(express.static('public'));
+app.use("/api/v1", apiRoutes);
+app.use(pageRoutes);
+app.set("view engine", "ejs");
+app.set("views", "public");
+app.use(express.static("public"));
 
 export { app };

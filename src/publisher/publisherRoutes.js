@@ -23,7 +23,7 @@ routes.get("/", async (request, response) => {
 });
 
 routes.delete("/", async (request, response) => {
-  let result = await deletePublisher(request.body.codigo);
+  let result = await deletePublisher(request.body.code);
   response.json(result);
 });
 

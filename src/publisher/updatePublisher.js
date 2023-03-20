@@ -2,13 +2,13 @@ import { db } from "../db.js";
 
 export async function updatePublisher(data) {
   try {
-    let result = await db.editora.update({
+    let result = await db.publisher.update({
       where: {
-        codigo: parseInt(data.codigo),
+        code: parseInt(data.code),
       },
       data: {
-        localDeOrigem: data.localDeOrigem,
-        nomeFantasia: data.nomeFantasia,
+        originPlace: data.originPlace,
+        fantasyName: data.fantasyName,
       },
     });
     return { data: result, has_error: false };

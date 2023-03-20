@@ -1,10 +1,10 @@
 import { db } from "../db.js";
 
-export async function fetchPublisherByCode(codigo) {
+export async function fetchPublisherByCode(code) {
   try {
-    let result = await db.editora.findUnique({
+    let result = await db.publisher.findUnique({
       where: {
-        codigo: parseInt(codigo),
+        code: parseInt(code),
       },
     });
     return { data: result, has_error: false };

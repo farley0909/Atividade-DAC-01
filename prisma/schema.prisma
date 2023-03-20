@@ -7,14 +7,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Livro {
-  id               Int      @id @default(autoincrement())
-  titulo           String
-  dataDeLancamento DateTime
+model Book {
+  id          Int      @id @default(autoincrement())
+  title       String
+  releaseDate DateTime
 }
 
-model Editora {
-  codigo        Int    @id @default(autoincrement())
-  localDeOrigem String
-  nomeFantasia  String
+model Publisher {
+  code        Int    @id @default(autoincrement())
+  originPlace String
+  fantasyName String
 }

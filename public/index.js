@@ -1,16 +1,16 @@
-let btnAddEditora = document.getElementById("btnAddEditora");
+let btnAddPublisher = document.getElementById("btnAddPublisher");
 
-btnAddEditora.addEventListener("click", async () => {
-  let nomeEditora = document.getElementById("nomeEditora").value;
-  let localDeOrigem = document.getElementById("localOrigemEditora").value;
-  if (!nomeEditora.length > 0 || !nomeEditora.length > 0) {
+btnAddPublisher.addEventListener("click", async () => {
+  let nomePublisher = document.getElementById("nomePublisher").value;
+  let originPlace = document.getElementById("localOrigemPublisher").value;
+  if (!nomePublisher.length > 0 || !nomePublisher.length > 0) {
     alert("Um dos campos está em branco");
   } else {
     let result = await fetch("/api/v1/publisher/", {
       method: "POST",
       body: JSON.stringify({
-        nomeFantasia: nomeEditora,
-        localDeOrigem: localDeOrigem,
+        fantasyName: nomePublisher,
+        originPlace: originPlace,
       }),
       headers: {
         "Content-type": "application/json",
@@ -18,26 +18,26 @@ btnAddEditora.addEventListener("click", async () => {
     });
     let response = await result.json();
     if (response.has_error == true) {
-      alert("Houve um erro ao cadastrar a editora!");
+      alert("Houve um erro ao cadastrar a publisher!");
     } else {
-      alert("A editora foi cadastrada!");
+      alert("A publisher foi cadastrada!");
       console.log(response.data);
-      let cotainer = document.getElementById("crudEditora");
+      let cotainer = document.getElementById("crudPublisher");
       let div = document.createElement("div");
-      div.classList.add("editoraItem");
+      div.classList.add("publisherItem");
       let divText = document.createElement("div");
       let h3 = document.createElement("h3");
-      h3.innerHTML = response.data.nomeFantasia;
-      h3.classList.add("editoraItemTitle");
+      h3.innerHTML = response.data.fantasyName;
+      h3.classList.add("publisherItemTitle");
       let h4 = document.createElement("h4");
-      h4.innerHTML = response.data.localDeOrigem;
-      h4.classList.add("editoraItemSubTitle");
+      h4.innerHTML = response.data.originPlace;
+      h4.classList.add("publisherItemSubTitle");
       divText.appendChild(h3);
       divText.appendChild(h4);
-      divText.classList.add("editoraTexts");
+      divText.classList.add("publisherTexts");
 
       let divButtons = document.createElement("div");
-      divButtons.classList.add("editoraButtons");
+      divButtons.classList.add("publisherButtons");
       let btnEdit = document.createElement("button");
       btnEdit.classList.add("btnEdit");
       let spanEditar = document.createElement("span");
@@ -49,7 +49,7 @@ btnAddEditora.addEventListener("click", async () => {
       let spanDelete = document.createElement("span");
       spanDelete.innerHTML = "delete";
       btnDelete.classList.add("material-symbols-outlined");
-      divButtons.classList.add("editoraButtons");
+      divButtons.classList.add("publisherButtons");
       btnDelete.appendChild(spanDelete);
       divButtons.appendChild(btnEdit);
       divButtons.appendChild(btnDelete);
@@ -62,40 +62,40 @@ btnAddEditora.addEventListener("click", async () => {
   }
 });
 
-async function deleteEditora(codigo) {
+async function deletePublisher(code) {
   try {
     let result = await fetch("/api/v1/publisher/", {
       method: "DELETE",
-      body: JSON.stringify({ codigo: codigo }),
+      body: JSON.stringify({ code: code }),
       headers: {
         "Content-type": "application/json",
       },
     });
     let response = await result.json();
     if (response.has_error == true) {
-      alert("Houve um problema ao remover a editora.");
+      alert("Houve um problema ao remover a publisher.");
     } else {
       document.location.reload(true);
     }
   } catch (error) {
-    alert("Houve um erro ao remover a editora: ", error.message);
+    alert("Houve um erro ao remover a publisher: ", error.message);
   }
 }
 
-async function editarEditora(codigo) {
+async function editarPublisher(code) {
   try {
     let result = await fetch("/api/v1/publisher");
     let response = await result.json();
     if (response.has_error == true) {
-      alert("Houve um erro ao carregar a editora");
+      alert("Houve um erro ao carregar a publisher");
     } else {
       response.data.forEach((element) => {
-        if (element.codigo == codigo) {
-          document.getElementById("editarNomeFantasia").value =
-            element.nomeFantasia;
-          document.getElementById("editarLocalDeOrigem").value =
-            element.localDeOrigem;
-          document.getElementById("editarCodigo").value = element.codigo;
+        if (element.code == code) {
+          document.getElementById("editarfantasyName").value =
+            element.fantasyName;
+          document.getElementById("editaroriginPlace").value =
+            element.originPlace;
+          document.getElementById("editarcode").value = element.code;
         }
       });
     }
@@ -105,13 +105,13 @@ let btnEdit = document.getElementById("saveEdit");
 
 btnEdit.addEventListener("click", async () => {
   try {
-    console.log(document.getElementById("editarCodigo").value);
+    console.log(document.getElementById("editarcode").value);
     let result = await fetch("/api/v1/publisher", {
       method: "PUT",
       body: JSON.stringify({
-        nomeFantasia: document.getElementById("editarNomeFantasia").value,
-        localDeOrigem: document.getElementById("editarLocalDeOrigem").value,
-        codigo: document.getElementById("editarCodigo").value,
+        fantasyName: document.getElementById("editarfantasyName").value,
+        originPlace: document.getElementById("editaroriginPlace").value,
+        code: document.getElementById("editarcode").value,
       }),
       headers: {
         "Content-type": "application/json",
@@ -119,7 +119,7 @@ btnEdit.addEventListener("click", async () => {
     });
     let response = await result.json();
     if (response.has_error == true) {
-      alert("Houve um erro ao atualizar a editora");
+      alert("Houve um erro ao atualizar a publisher");
     } else {
       location.reload();
     }
@@ -128,19 +128,19 @@ btnEdit.addEventListener("click", async () => {
   }
 });
 
-let btnAddLivro = document.getElementById("btnAddLivro");
+let btnAddBook = document.getElementById("btnAddBook");
 
-btnAddLivro.addEventListener("click", async () => {
-  let tituloLivro = document.getElementById("tituloLivroInput").value;
+btnAddBook.addEventListener("click", async () => {
+  let titleBook = document.getElementById("titleBookInput").value;
   let dataLancamento = document.getElementById("dataLancamentoInput").value;
-  if (!tituloLivro.length > 0 || !dataLancamento.length > 0) {
+  if (!titleBook.length > 0 || !dataLancamento.length > 0) {
     alert("Um dos campos está em branco");
   } else {
     let result = await fetch("/api/v1/book", {
       method: "POST",
       body: JSON.stringify({
-        titulo: tituloLivro,
-        dataDeLancamento: dataLancamento,
+        title: titleBook,
+        releaseDate: dataLancamento,
       }),
       headers: {
         "Content-type": "application/json",
@@ -148,28 +148,26 @@ btnAddLivro.addEventListener("click", async () => {
     });
     let response = await result.json();
     if (response.has_error == true) {
-      alert("Houve um erro ao cadastrar o livro!");
+      alert("Houve um erro ao cadastrar o book!");
     } else {
-      alert("O livro foi cadastrada!");
+      alert("O book foi cadastrada!");
       console.log(response.data);
-      let cotainer = document.getElementById("crudLivro");
+      let cotainer = document.getElementById("crudBook");
       let div = document.createElement("div");
-      div.classList.add("editoraItem");
+      div.classList.add("publisherItem");
       let divText = document.createElement("div");
       let h3 = document.createElement("h3");
-      h3.innerHTML = response.data.titulo;
-      h3.classList.add("editoraItemTitle");
+      h3.innerHTML = response.data.title;
+      h3.classList.add("publisherItemTitle");
       let h4 = document.createElement("h4");
-      h4.innerHTML = new Date(
-        response.data.dataDeLancamento
-      ).toLocaleDateString();
-      h4.classList.add("editoraItemSubTitle");
+      h4.innerHTML = new Date(response.data.releaseDate).toLocaleDateString();
+      h4.classList.add("publisherItemSubTitle");
       divText.appendChild(h3);
       divText.appendChild(h4);
-      divText.classList.add("editoraTexts");
+      divText.classList.add("publisherTexts");
 
       let divButtons = document.createElement("div");
-      divButtons.classList.add("editoraButtons");
+      divButtons.classList.add("publisherButtons");
       let btnEdit = document.createElement("button");
       btnEdit.classList.add("btnEdit");
       let spanEditar = document.createElement("span");
@@ -181,7 +179,7 @@ btnAddLivro.addEventListener("click", async () => {
       let spanDelete = document.createElement("span");
       spanDelete.innerHTML = "delete";
       btnDelete.classList.add("material-symbols-outlined");
-      divButtons.classList.add("editoraButtons");
+      divButtons.classList.add("publisherButtons");
       btnDelete.appendChild(spanDelete);
       divButtons.appendChild(btnEdit);
       divButtons.appendChild(btnDelete);
@@ -205,12 +203,12 @@ async function deleteBook(id) {
     });
     let response = await result.json();
     if (response.has_error == true) {
-      alert("Houve um problema ao remover a editora.");
+      alert("Houve um problema ao remover a publisher.");
     } else {
       document.location.reload(true);
     }
   } catch (error) {
-    alert("Houve um error ao deletar o livro");
+    alert("Houve um error ao deletar o book");
   }
 }
 async function editarBook(id) {
@@ -218,30 +216,29 @@ async function editarBook(id) {
     let result = await fetch("/api/v1/book");
     let response = await result.json();
     if (response.has_error == true) {
-      alert("Houve um erro ao carregar a editora");
+      alert("Houve um erro ao carregar a publisher");
     } else {
       response.data.forEach((element) => {
         if (element.id == id) {
-          document.getElementById("editarTituloDoLivro").value = element.titulo;
-          document.getElementById("editarDataDeLancamento").value = new Date(
-            element.dataDeLancamento
+          document.getElementById("editartitleDoBook").value = element.title;
+          document.getElementById("editarreleaseDate").value = new Date(
+            element.releaseDate
           ).toLocaleDateString();
-          document.getElementById("idLivro").value = element.id;
+          document.getElementById("idBook").value = element.id;
         }
       });
     }
   } catch (error) {}
 }
 
-document.getElementById("saveEditLivro").addEventListener("click", async () => {
+document.getElementById("saveEditBook").addEventListener("click", async () => {
   try {
     let result = await fetch("/api/v1/book", {
       method: "PUT",
       body: JSON.stringify({
-        titulo: document.getElementById("editarTituloDoLivro").value,
-        dataDeLancamento: document.getElementById("editarDataDeLancamento")
-          .value,
-        id: document.getElementById("idLivro").value,
+        title: document.getElementById("editartitleDoBook").value,
+        releaseDate: document.getElementById("editarreleaseDate").value,
+        id: document.getElementById("idBook").value,
       }),
       headers: {
         "Content-type": "application/json",
@@ -249,7 +246,7 @@ document.getElementById("saveEditLivro").addEventListener("click", async () => {
     });
     let response = await result.json();
     if (response.has_error == true) {
-      alert("Houve um erro ao atualizar a editora");
+      alert("Houve um erro ao atualizar a publisher");
     } else {
       location.reload();
     }

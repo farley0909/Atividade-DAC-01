@@ -2,7 +2,7 @@ import { db } from "../db.js";
 
 export async function fetchBookById(id) {
   try {
-    let result = await db.livro.findUnique({
+    let result = await db.book.findUnique({
       where: {
         id: parseInt(id),
       },

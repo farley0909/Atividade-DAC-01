@@ -2,10 +2,10 @@ import { db } from "../db.js";
 
 export async function addPublisher(data) {
   try {
-    let result = await db.editora.create({
+    let result = await db.publisher.create({
       data: {
-        nomeFantasia: data.nomeFantasia,
-        localDeOrigem: data.localDeOrigem,
+        fantasyName: data.fantasyName,
+        originPlace: data.originPlace,
       },
     });
     return { data: result, has_error: false };

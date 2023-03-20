@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./src/server.js",
-    "serve": "node ./src/server.js"
+    "serve": "node ./src/server.js",
+    "build": "docker build . -t atividade"
   },
   "repository": {
     "type": "git",

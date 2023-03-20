@@ -7,7 +7,7 @@ services:
     env_file:
       - .env
   app:
-    image: yolisses/atividade
+    image: atividade
     links:
       - "db:teste"
     ports:

@@ -10,5 +10,8 @@
   </head>
   <body>
     <div class="bg-green-500">hello</div>
+    <% books.map(book =>{ %>
+    <div class="p-2 hover:bg-white/10 rounded-lg"><%=book.title%></div>
+    <% }) %>
   </body>
 </html>

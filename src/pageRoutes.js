@@ -5,9 +5,12 @@ import { fetchAllPublisher } from "./publisher/fetchAllPublishers.js";
 const routes = Router();
 
 routes.get("/", async (req, res) => {
-  let publishers = await fetchAllPublisher();
+  res.redirect("/livros");
+});
+
+routes.get("/livros", async (req, res) => {
   let books = await fetchAllBooks();
-  res.render("index", { publishers, books });
+  res.render("index", { books });
 });
 
 routes.get("/stale", async (req, res) => {

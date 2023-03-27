@@ -1,10 +1,10 @@
 import { db } from "../db.js";
-import { formatDate } from "../util/formatDate.js";
-export async function addBook(data) {
+
+export async function addBook({ title, releaseDate }) {
   return await db.book.create({
     data: {
-      title: data.title,
-      releaseDate: new Date(data.releaseDate),
+      title,
+      releaseDate: new Date(releaseDate),
     },
   });
 }

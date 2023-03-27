@@ -1,13 +1,19 @@
-<form class="gap-0.5 max-w-xl flex flex-row rounded-xl flex-wrap">
+<form
+  method="post"
+  action="/publisher/create"
+  class="gap-0.5 max-w-xl flex flex-row rounded-xl flex-wrap"
+>
   <input
     required
     type="text"
+    name="fantasyName"
     placeholder="Nome Fantasia"
     class="h-10 p-2 rounded grow"
   />
   <input
     required
     type="text"
+    name="originPlace"
     placeholder="Local de Origem"
     class="h-10 p-2 rounded grow"
   />

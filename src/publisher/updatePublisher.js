@@ -4,7 +4,7 @@ export async function updatePublisher(data) {
   try {
     let result = await db.publisher.update({
       where: {
-        code: parseInt(data.code),
+        id: parseInt(data.id),
       },
       data: {
         originPlace: data.originPlace,

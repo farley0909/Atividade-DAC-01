@@ -62,11 +62,11 @@ btnAddPublisher.addEventListener("click", async () => {
   }
 });
 
-async function deletePublisher(code) {
+async function deletePublisher(id) {
   try {
     let result = await fetch("/api/v1/publisher/", {
       method: "DELETE",
-      body: JSON.stringify({ code: code }),
+      body: JSON.stringify({ id: id }),
       headers: {
         "Content-type": "application/json",
       },
@@ -82,7 +82,7 @@ async function deletePublisher(code) {
   }
 }
 
-async function editarPublisher(code) {
+async function editarPublisher(id) {
   try {
     let result = await fetch("/api/v1/publisher");
     let response = await result.json();
@@ -90,12 +90,12 @@ async function editarPublisher(code) {
       alert("Houve um erro ao carregar a publisher");
     } else {
       response.data.forEach((element) => {
-        if (element.code == code) {
+        if (element.id == id) {
           document.getElementById("editarfantasyName").value =
             element.fantasyName;
           document.getElementById("editaroriginPlace").value =
             element.originPlace;
-          document.getElementById("editarcode").value = element.code;
+          document.getElementById("editarid").value = element.id;
         }
       });
     }
@@ -105,13 +105,13 @@ let btnEdit = document.getElementById("saveEdit");
 
 btnEdit.addEventListener("click", async () => {
   try {
-    console.log(document.getElementById("editarcode").value);
+    console.log(document.getElementById("editarid").value);
     let result = await fetch("/api/v1/publisher", {
       method: "PUT",
       body: JSON.stringify({
         fantasyName: document.getElementById("editarfantasyName").value,
         originPlace: document.getElementById("editaroriginPlace").value,
-        code: document.getElementById("editarcode").value,
+        id: document.getElementById("editarid").value,
       }),
       headers: {
         "Content-type": "application/json",

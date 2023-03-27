@@ -3,7 +3,7 @@ import { addPublisher } from "../publisher/addPublisher.js";
 import { deletePublisher } from "../publisher/deletePublisher.js";
 import { updatePublisher } from "../publisher/updatePublisher.js";
 import { getPublishers } from "../publisher/getPublishers.js";
-import { fetchPublisherByCode } from "../publisher/fetchPublisherByCode.js";
+import { fetchPublisherById } from "./fetchPublisherById.js";
 
 const routes = Router();
 
@@ -12,8 +12,8 @@ routes.post("/", async (request, response) => {
   response.json(result);
 });
 
-routes.get("/:code", async (request, response) => {
-  let result = await fetchPublisherByCode(request.params.code);
+routes.get("/:id", async (request, response) => {
+  let result = await fetchPublisherById(request.params.id);
   response.json(result);
 });
 
@@ -23,7 +23,7 @@ routes.get("/", async (request, response) => {
 });
 
 routes.delete("/", async (request, response) => {
-  let result = await deletePublisher(request.body.code);
+  let result = await deletePublisher(request.body.id);
   response.json(result);
 });
 

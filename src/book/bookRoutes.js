@@ -22,8 +22,8 @@ routes.get("/", async (request, response) => {
   response.json(result);
 });
 
-routes.delete("/", async (request, response) => {
-  let result = await deleteBook(request.body.id);
+routes.delete("/:id", async (request, response) => {
+  let result = await deleteBook(request.params.id);
   response.json(result);
 });
 

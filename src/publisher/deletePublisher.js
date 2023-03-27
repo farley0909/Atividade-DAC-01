@@ -1,9 +1,9 @@
 import { db } from "../db.js";
 
-export async function deletePublisher(code) {
+export async function deletePublisher(id) {
   try {
     let result = await db.publisher.delete({
-      where: { code: parseInt(code) },
+      where: { id: parseInt(id) },
     });
     return { data: "publisher has been removed", has_error: false };
   } catch (error) {

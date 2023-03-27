@@ -14,9 +14,11 @@
         <button class="hover:bg-blue-500 p-2 px-4 md:px-6 rounded-lg">
           <span class="material-symbols-outlined">edit</span>
         </button>
-        <button class="hover:bg-red-500 p-2 px-4 md:px-6 rounded-lg">
-          <span class="material-symbols-outlined">delete</span>
-        </button>
+        <form action="/books/<%=book.id%>/delete">
+          <button class="hover:bg-red-500 p-2 px-4 md:px-6 rounded-lg">
+            <span class="material-symbols-outlined">delete</span>
+          </button>
+        </form>
       </div>
     </td>
   </tr>

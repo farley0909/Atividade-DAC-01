@@ -1,13 +1,19 @@
-<form class="gap-0.5 max-w-xl flex flex-row rounded-xl flex-wrap">
+<form
+  method="post"
+  action="/books/create"
+  class="gap-0.5 max-w-xl flex flex-row rounded-xl flex-wrap"
+>
   <input
     required
     type="text"
+    name="title"
     placeholder="Título"
     class="h-10 p-2 rounded grow"
   />
   <input
     required
     type="date"
+    name="releaseDate"
     placeholder="Data de lançamento"
     class="h-10 p-2 rounded grow"
   />

@@ -229,7 +229,7 @@
               </button>
             </div>
           </div>
-          <% if(books){%> <%books.data.forEach(el => {%>
+          <%books?.forEach(el => {%>
           <div class="publisherItem">
             <div class="publisherTexts">
               <h3 class="publisherItemTitle"><%=el.titulo%></h3>
@@ -251,7 +251,7 @@
               </button>
             </div>
           </div>
-          <%})%> <%}%>
+          <%})%>
         </section>
       </main>
       <!--Modal-->

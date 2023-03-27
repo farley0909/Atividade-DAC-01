@@ -10,4 +10,10 @@ routes.get("/", async (req, res) => {
   res.render("index", { publishers, books });
 });
 
+routes.get("/stale", async (req, res) => {
+  let publishers = await fetchAllPublisher();
+  let books = await fetchAllBooks();
+  res.render("index-stale", { publishers, books });
+});
+
 export { routes as pageRoutes };

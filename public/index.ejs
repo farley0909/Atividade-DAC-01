@@ -34,16 +34,7 @@
           Adicionar
         </button>
       </form>
-      <form class="flex flex-row items-stretch max-w-xl">
-        <input
-          type="text"
-          placeholder="Pesquisar"
-          class="p-2 rounded-lg grow"
-        />
-        <button class="p-2 h-10 rounded hover:bg-white/10 grow-0" type="submit">
-          <span class="material-symbols-outlined">search</span>
-        </button>
-      </form>
+      <%- include('searchForm'); %>
     </div>
     <table>
       <% books.map(book =>{ %>

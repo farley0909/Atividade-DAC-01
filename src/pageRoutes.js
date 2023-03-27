@@ -9,13 +9,15 @@ routes.get("/", async (req, res) => {
 });
 
 routes.get("/livros", async (req, res) => {
-  const books = await getBooks();
-  res.render("book/bookPage", { books });
+  const { q } = req.query;
+  const books = await getBooks(q);
+  res.render("book/bookPage", { books, q });
 });
 
 routes.get("/editoras", async (req, res) => {
-  const publishers = await getPublishers();
-  res.render("publisher/publisherPage", { publishers });
+  const { q } = req.query;
+  const publishers = await getPublishers(q);
+  res.render("publisher/publisherPage", { publishers, q });
 });
 
 routes.get("/stale", async (req, res) => {

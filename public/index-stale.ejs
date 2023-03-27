@@ -232,9 +232,9 @@
           <%books?.forEach(el => {%>
           <div class="publisherItem">
             <div class="publisherTexts">
-              <h3 class="publisherItemTitle"><%=el.titulo%></h3>
+              <h3 class="publisherItemTitle"><%=el.title%></h3>
               <h4 class="publisherItemSubTitle">
-                <%=new Date(el.dataDeLancamento).toLocaleDateString()%>
+                <%=new Date(el.releaseDate).toLocaleDateString()%>
               </h4>
             </div>
             <div class="publisherButtons">

@@ -6,3 +6,19 @@ html {
   color: white;
   background-color: #292524;
 }
+
+input {
+  color: initial !important;
+}
+
+div,
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

@@ -2,10 +2,10 @@
 <html lang="pt-br">
   <%- include('../head'); %>
   <body class="gap-4">
-    <%- include('../topNav', {selected:'book'}); %>
+    <%- include('../topNav', {selected:'publisher'}); %>
     <div class="flex-row justify-around items-start gap-4 flex-wrap px-4">
-      <%- include('./bookAddForm'); %> <%- include('../searchForm'); %>
+      <%- include('./publisherAddForm'); %> <%- include('../searchForm'); %>
     </div>
-    <%- include('./bookTable', {books}); %>
+    <%- include('./publisherTable', {publishers}); %>
   </body>
 </html>

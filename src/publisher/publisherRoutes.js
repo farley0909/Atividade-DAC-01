@@ -2,7 +2,7 @@ import { Router } from "express";
 import { addPublisher } from "../publisher/addPublisher.js";
 import { deletePublisher } from "../publisher/deletePublisher.js";
 import { updatePublisher } from "../publisher/updatePublisher.js";
-import { fetchAllPublisher } from "../publisher/fetchAllPublishers.js";
+import { getPublishers } from "../publisher/getPublishers.js";
 import { fetchPublisherByCode } from "../publisher/fetchPublisherByCode.js";
 
 const routes = Router();
@@ -18,7 +18,7 @@ routes.get("/:code", async (request, response) => {
 });
 
 routes.get("/", async (request, response) => {
-  let result = await fetchAllPublisher();
+  let result = await getPublishers();
   response.json(result);
 });
 

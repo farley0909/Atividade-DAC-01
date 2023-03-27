@@ -3,7 +3,7 @@ import { addBook } from "../book/addBook.js";
 import { deleteBook } from "../book/deleteBook.js";
 import { updateBook } from "../book/updateBook.js";
 import { fetchBookById } from "../book/fetchBookById.js";
-import { fetchAllBooks } from "../book/fetchAllBooks.js";
+import { getBooks } from "../book/getBooks.js";
 
 const routes = Router();
 
@@ -18,7 +18,7 @@ routes.get("/:id", async (request, response) => {
 });
 
 routes.get("/", async (request, response) => {
-  let result = await fetchAllBooks();
+  let result = await getBooks();
   response.json(result);
 });
 

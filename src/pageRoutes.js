@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { fetchAllBooks } from "./book/fetchAllBooks.js";
-import { fetchAllPublisher } from "./publisher/fetchAllPublishers.js";
+import { getBooks } from "./book/getBooks.js";
+import { getPublishers } from "./publisher/getPublishers.js";
 
 const routes = Router();
 
@@ -9,13 +9,18 @@ routes.get("/", async (req, res) => {
 });
 
 routes.get("/livros", async (req, res) => {
-  let books = await fetchAllBooks();
+  const books = await getBooks();
   res.render("book/bookPage", { books });
 });
 
+routes.get("/editoras", async (req, res) => {
+  const publishers = await getPublishers();
+  res.render("publisher/publisherPage", { publishers });
+});
+
 routes.get("/stale", async (req, res) => {
-  let publishers = await fetchAllPublisher();
-  let books = await fetchAllBooks();
+  const publishers = await getPublishers();
+  const books = await getBooks();
   res.render("index-stale", { publishers, books });
 });
 

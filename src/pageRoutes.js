@@ -10,7 +10,7 @@ routes.get("/", async (req, res) => {
 
 routes.get("/livros", async (req, res) => {
   let books = await fetchAllBooks();
-  res.render("index", { books });
+  res.render("book/bookPage", { books });
 });
 
 routes.get("/stale", async (req, res) => {

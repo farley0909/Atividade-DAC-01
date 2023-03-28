@@ -10,10 +10,13 @@
       <td class="opacity-50"><%= publisher.originPlace %></td>
       <td>
         <div class="flex-row w-fit">
-          <button class="hover:bg-blue-500 p-2 px-4 md:px-6 rounded-lg">
+          <a
+            href="/editoras?id=<%=publisher.id%>"
+            class="hover:bg-blue-500 p-2 px-4 md:px-6 rounded-lg"
+          >
             <span class="material-symbols-outlined">edit</span>
-          </button>
-          <form action="/publisher/<%=publisher.id%>/delete">
+          </a>
+          <form action="/publishers/<%=publisher.id%>/delete">
             <button class="hover:bg-red-500 p-2 px-4 md:px-6 rounded-lg">
               <span class="material-symbols-outlined">delete</span>
             </button>

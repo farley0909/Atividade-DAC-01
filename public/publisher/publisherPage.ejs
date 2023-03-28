@@ -6,6 +6,7 @@
     <div class="flex-row justify-around items-start gap-4 flex-wrap px-4">
       <%- include('./publisherAddForm'); %> <%- include('../searchForm'); %>
     </div>
-    <%- include('./publisherTable', {publishers}); %>
+    <%- include('./publisherTable', {publishers}); %><% if (publisher) { %> <%-
+    include('./publisherEditModal', {publisher}); %> <% } %>
   </body>
 </html>

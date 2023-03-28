@@ -11,15 +11,12 @@
     </td>
     <td>
       <div class="flex-row w-fit">
-        <form method="get">
-          <input type="hidden" name="id" value="<%=book.id%>" />
-          <button
-            type="submit"
-            class="hover:bg-blue-500 p-2 px-4 md:px-6 rounded-lg"
-          >
-            <span class="material-symbols-outlined">edit</span>
-          </button>
-        </form>
+        <a
+          href="/livros?id=<%=book.id%>"
+          class="hover:bg-blue-500 p-2 px-4 md:px-6 rounded-lg"
+        >
+          <span class="material-symbols-outlined">edit</span>
+        </a>
         <form action="/books/<%=book.id%>/delete">
           <button
             type="submit"

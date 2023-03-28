@@ -22,3 +22,17 @@ button {
   flex-direction: row;
   justify-content: center;
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes pop-up {
+  from {
+    opacity: 0;
+    scale: 0.9;
+    transform: translateY(1rem);
+  }
+}

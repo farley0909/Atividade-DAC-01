@@ -1,0 +1,49 @@
+<div class="fixed inset-0 items-center justify-center">
+  <a
+    href="/editoras"
+    style="animation: fade-in 0.1s"
+    class="bg-black/70 fixed inset-0 -z-10"
+  ></a>
+  <div
+    class="bg-stone-800 p-4 rounded-xl gap-4"
+    style="animation: pop-up 0.1s; box-shadow: 0 1rem 1rem #0008"
+  >
+    <div class="text-xl font-medium">Editar editora</div>
+    <form
+      method="post"
+      action="/publishers/put"
+      class="gap-2 max-w-xl flex flex-col"
+    >
+      <input type="hidden" name="id" value="<%=publisher.id%>" />
+      <input
+        required
+        type="text"
+        name="fantasyName"
+        placeholder="Nome Fantasia"
+        class="h-10 p-2 rounded grow"
+        value="<%=publisher.fantasyName%>"
+      />
+      <input
+        required
+        type="text"
+        name="originPlace"
+        placeholder="Local de Origem"
+        class="h-10 p-2 rounded grow"
+        value="<%=publisher.originPlace%>"
+      />
+      <div class="flex-row gap-2">
+        <button class="bg-green-700 p-2 h-10 rounded grow" type="submit">
+          <span class="material-symbols-outlined">check</span>
+          Salvar
+        </button>
+        <a
+          href="/editoras"
+          class="hover:bg-white/10 p-2 h-10 rounded grow items-center flex flex-row justify-center"
+        >
+          <span class="material-symbols-outlined">close</span>
+          Cancelar
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -6,7 +6,7 @@
     <div class="flex-row justify-around items-start gap-4 flex-wrap px-4">
       <%- include('./bookAddForm'); %> <%- include('../searchForm'); %>
     </div>
-    <%- include('./bookTable', {books}); %>
+    <%- include('./bookTable', {books}); %> <% if (book) { %> <%-
+    include('./bookEditModal', {book}); %> <% } %>
   </body>
-  <% if (book) { %> <%- include('../modal', {book}); %> <% } %>
 </html>

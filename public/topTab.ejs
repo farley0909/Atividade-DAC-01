@@ -2,6 +2,9 @@
   href="<%=path%>"
   class="font-medium text-2xl flex flex-row items-center gap-1 p-2 px-4 rounded-t-xl <%= selected===id ? 'bg-stone-800' : 'hover:bg-white/10' %>"
 >
-  <span class="material-symbols-outlined opacity-50"><%=iconName%></span>
+  <span
+    class="material-symbols-outlined <%= selected===id ? '' : 'opacity-20' %>"
+    ><%=iconName%></span
+  >
   <%=name%>
 </a>

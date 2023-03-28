@@ -1,7 +1,9 @@
 import { Router } from "express";
 import { addBook } from "./book/addBook.js";
 import { deleteBook } from "./book/deleteBook.js";
+import { fetchBookById } from "./book/fetchBookById.js";
 import { getBooks } from "./book/getBooks.js";
+import { updateBook } from "./book/updateBook.js";
 import { addPublisher } from "./publisher/addPublisher.js";
 import { deletePublisher } from "./publisher/deletePublisher.js";
 import { getPublishers } from "./publisher/getPublishers.js";
@@ -13,9 +15,10 @@ routes.get("/", async (req, res) => {
 });
 
 routes.get("/livros", async (req, res) => {
-  const { q } = req.query;
+  const { q, id } = req.query;
   const books = await getBooks(q);
-  res.render("book/bookPage", { books, q });
+  const book = id ? await fetchBookById(id) : undefined;
+  res.render("book/bookPage", { book, books, q });
 });
 
 routes.use("/books/create", async (req, res) => {
@@ -25,6 +28,11 @@ routes.use("/books/create", async (req, res) => {
 
 routes.use("/books/:id/delete", async (req, res) => {
   await deleteBook(req.params.id);
+  res.redirect("/livros");
+});
+
+routes.use("/books/put", async (req, res) => {
+  await updateBook(req.body);
   res.redirect("/livros");
 });
 

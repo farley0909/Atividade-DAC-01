@@ -8,4 +8,5 @@
     </div>
     <%- include('./bookTable', {books}); %>
   </body>
+  <% if (book) { %> <%- include('../modal', {book}); %> <% } %>
 </html>

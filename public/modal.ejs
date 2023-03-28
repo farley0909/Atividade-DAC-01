@@ -1,0 +1,65 @@
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes pop-up {
+    from {
+      opacity: 0;
+      scale: 0.9;
+      transform: translateY(1rem);
+    }
+  }
+</style>
+
+<div class="fixed inset-0 items-center justify-center">
+  <a
+    href="/livros"
+    style="animation: fade-in 0.1s"
+    class="bg-black/70 fixed inset-0 -z-10"
+  ></a>
+  <div
+    class="bg-stone-800 p-4 rounded-xl gap-4"
+    style="animation: pop-up 0.1s; box-shadow: 0 1rem 1rem #0008"
+  >
+    <div class="text-xl font-medium">Editar livro</div>
+    <form
+      method="post"
+      action="/books/put"
+      class="gap-2 max-w-xl flex flex-col"
+    >
+      <input type="hidden" name="id" value="<%=book.id%>" />
+      <input
+        required
+        type="text"
+        name="title"
+        placeholder="Título"
+        value="<%= book.title %>"
+        class="h-10 p-2 rounded grow"
+      />
+      <input
+        required
+        type="date"
+        name="releaseDate"
+        value="<%= new Date(book.releaseDate).toISOString().substring(0, 10) %>"
+        placeholder="Data de lançamento"
+        class="h-10 p-2 rounded grow"
+      />
+      <div class="flex-row gap-2">
+        <button class="bg-green-700 p-2 h-10 rounded grow" type="submit">
+          <span class="material-symbols-outlined">check</span>
+          Salvar
+        </button>
+        <a
+          href="/livros"
+          class="hover:bg-white/10 p-2 h-10 rounded grow items-center flex flex-row justify-center"
+        >
+          <span class="material-symbols-outlined">close</span>
+          Cancelar
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

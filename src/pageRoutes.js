@@ -60,10 +60,4 @@ routes.use("/publishers/:id/delete", async (req, res) => {
   res.redirect("/editoras");
 });
 
-routes.get("/stale", async (req, res) => {
-  const publishers = await getPublishers();
-  const books = await getBooks();
-  res.render("index-stale", { publishers, books });
-});
-
 export { routes as pageRoutes };

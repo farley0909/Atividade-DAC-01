@@ -7,7 +7,7 @@ services:
     env_file:
       - .env
   app:
-    image: atividade
+    image: dac1
     links:
       - "db:teste"
     ports:
